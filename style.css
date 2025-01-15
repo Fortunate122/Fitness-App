@@ -1,0 +1,74 @@
+body {
+    background-color: #363434;
+}
+header {
+    height: 100px;
+    width: 100%;
+    /* Sets border to bottom only */
+    border-bottom: 10px solid darkblue;
+    background-color: #881616;
+  }
+  
+  section {
+    width: 70%;
+    /* Sets top and bottom margin to 20px. Auto will center element */
+    margin: 20px auto;
+    border: 5px solid rgb(255, 255, 255);
+  }
+  
+  h1 {
+    text-align: center;
+    line-height: 100px;
+    font-size: 24px;
+  }
+  
+  h2 {
+    /* Sets bottom margin to 0 */
+    margin-bottom: 0;
+    font-size: 18px;
+  }
+  
+  h3 {
+    /* Sets top margin to 0 */
+    margin-top: 0;
+    font-size: 14px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat (12,1fr);
+  }
+
+  .linear-gradient-background {
+    background-image: linear-gradient
+        (rgba(232, 102, 0.3) 0%
+        rgba(232, 102, 0.6) 100%);
+  }
+
+  .code-card .card-header {
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .code-card:hover, .code-card:hover .card-header {
+    box-shadow: inset 0px 0px 8px
+    rgba(232, 102, 236, 1), 0 0 15px
+    rgba(232, 102, 236, 1);
+  }
+
+  .card-header {
+    position: relative;
+    margin-top: -20px;
+  }
