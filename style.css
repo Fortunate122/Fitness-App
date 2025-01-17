@@ -88,7 +88,7 @@ main {
 
 .hero-banner {
   background: rgb(68, 88, 120);
-  background-image: url(../../../Assets/banner-challenge-2.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-image: url(images/gym-banner.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
   background-blend-mode: soft-light;
@@ -372,8 +372,4 @@ main {
   .flex-item:first-child {
     min-height: 150px;
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 4b8e1faa6dc5ce49511607a7103bb64c49763997
