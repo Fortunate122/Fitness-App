@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
- <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fitness Application</title>
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fitness Application</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -14,7 +14,10 @@
                 <nav>
                     <a href="#about">Game Plan</a>
                     <a href="#portfolio">Workout Videos</a>
-                    <a href="#contact">Nutrition</a>
+
+                    <a href="#contact">Sign Up</a>
+
+                 
                 </nav>
     </header>
     <main>
@@ -43,53 +46,71 @@
         <section id="portfolio" class="page-section">
             <h2>Workout Videos</h2>
             <div class="flex-container">
-                <a href="https://www.surf-forecast.com/provinces/california/breaks" class="flex-item warm-up">
+
+                <a href="https://www.youtube.com/watch?v=_6-k5-w1bZw" class="flex-item warm-up">
+
+
                     <div>
                         <h3>Warm Up</h3>
                     </div>
                 </a>
-                <a href="https://brightlinkav.com/collections/led-small-pitch-hd-video-walls?submitted=true&utm_medium=adwords&utm_campaign=&utm_source=&utm_content=723187340067&utm_term=&gad_source=2&gclid=CjwKCAiAjp-7BhBZEiwAmh9rBVKBNe5806JsdaXLbP_wn5KBTpwbjdxtaM81PFLpD46uTjfSSg_6vxoCoRMQAvD_BwE" class="flex-item chest-press">
+
+                <a href="https://youtu.be/4Y2ZdHCOXok?si=ULaEwE2fdGeuB1eG" class="flex-item chest-press">
+
+              
                     <div>
                         <h3>Chest Press</h3>
                     </div>
                 </a>
-                <a href="https://www.desmos.com/scientific" class="flex-item bicep-curl">
+
+                <a href="https://youtu.be/XE_pHwbst04?si=l8ECB5EEZ5pI2R6B" class="flex-item bicep-curl">
+
+
+
                     <div>
                         <h3>Bicep Curl</h3>
                     </div>
                 </a>
-                <a href="https://photos.com/shop/puzzles/pastel+color?srsltid=AfmBOoqbHvalwJb1AY4iCF6AP28AzG0Vy7imAH0bbMpL39KZ3wMVUqXM" class="flex-item back-row">
+
+                <a href="https://youtu.be/7B5Exks1KJE?si=ZoFPcFuJFfr8-K2c" class="flex-item back-row">
+
+              
                     <div>
                         <h3>Back Row</h3>
                     </div>
                 </a>
-                <a href="https://getrunbuddy.app/" class="flex-item tricep-ext">
+
+                <a href="https://youtu.be/30owVlZZEf8?si=tA37WRBuDYpkRfAb" class="flex-item tricep-ext">
+
+
                     <div>
                         <h3>Tricep Extension</h3>
                     </div>
                 </a>
-                <a href="https://getrunbuddy.app/" class="flex-item ham-curl">
+
+                <a href="https://youtu.be/q1cKTmaeQWo?si=WqSdOX5toOOtuoFM" class="flex-item ham-curl">
                     <div>
                         <h3>Hamstring Curl</h3>
                     </div>
-                </a> <a href="https://getrunbuddy.app/" class="flex-item quad-ext">
+                </a> <a href="https://youtu.be/ljO4jkwv8wQ?si=NDIBGsDKil3orqJV" class="flex-item quad-ext">
                     <div>
                         <h3>Quad Extension</h3>
                     </div>
-                </a> <a href="https://getrunbuddy.app/" class="flex-item squat">
+                </a> <a href="https://youtu.be/my0tLDaWyDU?si=K-r9vFlVzIpHgXWK" class="flex-item squat">
                     <div>
                         <h3>Squat</h3>
                     </div>
-                </a> <a href="https://getrunbuddy.app/" class="flex-item rdl">
+                </a> <a href="https://youtu.be/5bJEigM5iVg?si=_lHDOfjCRZl-xex_" class="flex-item rdl">
                     <div>
                         <h3>Romanian Deadlift</h3>
                     </div>
-                </a> <a href="https://getrunbuddy.app/" class="flex-item cardio">
+                </a> <a href="https://www.youtube.com/watch?v=heP2u6TYfeE" class="flex-item cardio">
+
                     <div>
                         <h3>Cardio</h3>
                     </div>
                 </a>
-                <a href="https://getrunbuddy.app/" class="flex-item recovery">
+                <a href="https://www.youtube.com/watch?v=utAqR9-dmh0" class="flex-item recovery">
                     <div>
                         <h3>Recovery</h3>
                     </div>
@@ -97,9 +118,22 @@
             </div>            
         </section>
         <section id="contact" class="page-section">
-            <h2>Nutrition</h2>
+
+            <h2>Sign Up</h2>
             <div class="contact-address">
-                <a href="davidsaldana122@gmail.com">Nutrition</a>
+  <form id="signup-form">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required />
+
+    <label for="password">Password</label>
+    <input type="text" id="title" name="title" required />
+
+    <label for="email">Email</label>
+    <input type="text" id="title" name="title" required />
+
+    <input type="submit" value="Submit" />
+    <p id="error"></p>
+  </form>
             </div>
         </section>
     </main>  
