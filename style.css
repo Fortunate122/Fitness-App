@@ -88,7 +88,7 @@ main {
 
 .hero-banner {
   background: rgb(68, 88, 120);
-  background-image: url(images/gym-banner.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-image: url(Fitness_IMG/workoutbannermainv2.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
   background-blend-mode: soft-light;
@@ -221,9 +221,9 @@ main {
 
 /* portfolio project images */
 /* TODO: Add portfolio project images here using background images*/
-.run-buddy {
+.tricep-ext {
   background: rgb(68, 88, 120);
-  background-image: url(../../../Assets/run-buddy.png), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-image: url(Fitness_IMG/TricepExtensions.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
   background-blend-mode: soft-light;
@@ -236,9 +236,9 @@ main {
   text-align: right;
 }
 
-.led-wall {
+.chest-press {
   background: rgb(68, 88, 120);
-  background-image: url(../../../Assets/led-wall.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-image: url(Fitness_IMG/ChestWorkout.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
   background-blend-mode: soft-light;
@@ -251,9 +251,9 @@ main {
   text-align: right;
 }
 
-.react-calc {
+.bicep-curl{
   background: rgb(68, 88, 120);
-  background-image: url(../../../Assets/Statistical-calculator.png), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-image: url(Fitness_IMG/bicepcurls.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
   background-blend-mode: soft-light;
@@ -266,9 +266,9 @@ main {
   text-align: right;
 }
 
-.pastel-puzzles {
+.back-row{
   background: rgb(68, 88, 120);
-  background-image: url(../../../Assets/pastel-puzzle.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-image: url(Fitness_IMG/BackRows.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
   background-blend-mode: soft-light;
@@ -281,9 +281,9 @@ main {
   text-align: right;
 }
 
-.surf-report {
+.warm-up{
   background: rgb(68, 88, 120);
-  background-image: url(../../../Assets/surf-report.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-image: url(Fitness_IMG/warmup.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
   background-blend-mode: soft-light;
@@ -296,7 +296,90 @@ main {
   text-align: right;
 }
 
-/* media queries */
+.ham-curl {
+  background: rgb(68, 88, 120);
+  background-image: url(Fitness_IMG/hamstringcurl.png), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  min-height: 30vh;
+  color: var(--light);
+  padding: 2% 6%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.quad-ext {
+  background: rgb(68, 88, 120);
+  background-image: url(Fitness_IMG/quadextensions.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  min-height: 30vh;
+  color: var(--light);
+  padding: 2% 6%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.squat {
+  background: rgb(68, 88, 120);
+  background-image: url(Fitness_IMG/squats.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  min-height: 30vh;
+  color: var(--light);
+  padding: 2% 6%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.rdl {
+  background: rgb(68, 88, 120);
+  background-image: url(Fitness_IMG/RDL.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  min-height: 30vh;
+  color: var(--light);
+  padding: 2% 6%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* media queries for a max-width of 980px */
 @media screen and (max-width: 980px) {
