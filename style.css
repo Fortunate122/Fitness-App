@@ -18,6 +18,58 @@ body {
   color: var(--primary);
   background-color: var(--light);
   line-height: 1.5;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+body.dark {
+  color: var(--light);
+  background-color: var(--dark);
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.label {
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  height: 26px;
+  width: 50px;
+  transform: scale(1.23);
+}
+
+.ball {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 22px;
+  width: 22px;
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+  background-color: black;
+  transform: translateX(24px);
+}
+
+.fa-moon {
+  color: #f1c40f;
+  font-size: 20px;
+  margin: 3px;
+}
+
+.fa-sun {
+  color: #f39c12;
+  font-size: 20px;
+  margin: 3px;
 }
 
 h1,
@@ -356,30 +408,35 @@ main {
   text-align: right;
 }
 
+.cardio {
+  background: rgb(68, 88, 120);
+  background-image: url(Fitness_IMG/Cardio.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  min-height: 30vh;
+  color: var(--light);
+  padding: 2% 6%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.recovery {
+  background: rgb(68, 88, 120);
+  background-image: url(Fitness_IMG/Recovery.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: soft-light;
+  min-height: 30vh;
+  color: var(--light);
+  padding: 2% 6%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  text-align: right;
+}
 
 /* media queries for a max-width of 980px */
 @media screen and (max-width: 980px) {
