@@ -4,11 +4,11 @@
 
 /* brand color palette */
 :root {
-  --primary: rgba(68, 88, 119, 1);
-  --secondary: rgba(146, 204, 206, 1);
-  --tertiary: rgba(49, 52, 61, 1);
-  --dark: rgba(28, 29, 33, 1);
-  --light: rgba(238, 238, 247, 1);
+  --primary: rgb(0, 0, 0);
+  --secondary: rgb(255, 255, 255);
+  --tertiary: rgb(0, 0, 0);
+  --dark: rgb(0, 0, 0);
+  --light: rgb(221, 221, 221);
 }
 
 body {
@@ -32,7 +32,7 @@ body.dark {
 }
 
 .label {
-  background-color: gray;
+  background-color: rgb(39, 39, 39);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -45,7 +45,7 @@ body.dark {
 }
 
 .ball {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 50%;
   position: absolute;
   top: 2px;
@@ -56,7 +56,7 @@ body.dark {
 }
 
 .checkbox:checked + .label .ball {
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   transform: translateX(24px);
 }
 
@@ -67,7 +67,7 @@ body.dark {
 }
 
 .fa-sun {
-  color: #f39c12;
+  color: #f31212;
   font-size: 20px;
   margin: 3px;
 }
@@ -93,7 +93,7 @@ header {
   flex-wrap: wrap;
   align-items: center;
   background-color: var(--tertiary);
-  box-shadow: 0 5px 35px rgba(146, 204, 206, 0.4);
+  box-shadow: 0 5px 35px rgba(3, 235, 34, 0.4);
 }
 
 header h1 {
@@ -139,7 +139,7 @@ main {
 }
 
 .hero-banner {
-  background: rgb(68, 88, 120);
+  background: rgb(114, 114, 114);
   background-image: url(Fitness_IMG/workoutbannermainv2.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -231,7 +231,7 @@ main {
 }
 
 .flex-item:hover {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(202, 202, 202, 0.3);
 }
 
 .flex-item div {
@@ -274,7 +274,7 @@ main {
 /* portfolio project images */
 /* TODO: Add portfolio project images here using background images*/
 .tricep-ext {
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/TricepExtensions.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -286,10 +286,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .chest-press {
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/ChestWorkout.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -301,10 +302,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .bicep-curl{
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/bicepcurls.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -316,10 +318,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .back-row{
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/BackRows.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -331,10 +334,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .warm-up{
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/warmup.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -346,10 +350,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .ham-curl {
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/hamstringcurl.png), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -361,10 +366,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .quad-ext {
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/quadextensions.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -376,10 +382,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .squat {
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/squats.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -391,10 +398,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .rdl {
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/RDL.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -406,10 +414,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .cardio {
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/Cardio.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -421,10 +430,11 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 .recovery {
-  background: rgb(68, 88, 120);
+  background: rgb(100, 100, 100);
   background-image: url(Fitness_IMG/Recovery.jpg), linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%);
   background-size: cover;
   background-position: center;
@@ -436,6 +446,7 @@ main {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: #000000;
 }
 
 /* media queries for a max-width of 980px */
@@ -513,3 +524,4 @@ main {
     min-height: 150px;
   }
 }
+
