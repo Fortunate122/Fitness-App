@@ -525,3 +525,38 @@ main {
   }
 }
 
+@media screen and (max-width: 480px) {
+  header {
+    padding: 0 0 8px 0; /* Slightly reduce padding for smaller screens */
+    justify-content: center;
+    text-align: center;
+  }
+  header h1 {
+    width: 100%;
+    padding: 3px; /* Slightly reduce padding */
+    margin-bottom: 8px; /* Adjust spacing for smaller layout */
+    font-size: 12vw; /* Increase font responsiveness for smaller screens */
+  }
+  header nav {
+    justify-content: center;
+  }
+  .page-section > h2,
+  .page-section > div {
+    flex: 0 0 100%;
+  }
+  .page-section > h2 {
+    border-right: none;
+    border-bottom: 3px solid var(--primary); /* Adjust border thickness */
+    margin-bottom: 15px; /* Tighter spacing */
+    padding-bottom: 8px;
+    text-align: left;
+    font-size: 9vw; /* Slightly larger font for emphasis on small screens */
+  }
+  .flex-item {
+    min-height: 120px; /* Reduce minimum height */
+  }
+  .flex-item:first-child {
+    min-height: 120px; /* Match first child adjustment */
+  }
+}
+
