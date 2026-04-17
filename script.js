@@ -255,9 +255,17 @@ function addSelectedDaysToPlan() {
     return;
   }
 
-  selectedDays.forEach((day) => {
+selectedDays.forEach((day) => {
+  const alreadyExists = weeklyPlan[day].some(
+    (workout) => workout.id === selectedWorkoutForPlan.id
+  );
+
+  if (!alreadyExists) {
     weeklyPlan[day].push(selectedWorkoutForPlan);
-  });
+  } else {
+    alert(`${selectedWorkoutForPlan.title} is already in ${day}.`);
+  }
+});
 
   saveWeeklyPlan();
   renderWeeklyPlan();
