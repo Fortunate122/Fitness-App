@@ -1,55 +1,173 @@
-const checkbox = document.getElementById('checkbox');
+const checkbox = document.getElementById("checkbox");
+const workoutGrid = document.getElementById("workout-grid");
+const muscleFilter = document.getElementById("muscle-filter");
+const goalFilter = document.getElementById("goal-filter");
 
-// Toggle theme and store preference in local storage
-checkbox.addEventListener('change', () => {
-  document.body.classList.toggle('dark');
-  console.log('Theme toggled:', document.body.classList.contains('dark') ? 'Dark mode' : 'Light mode');
+const workouts = [
+  {
+    id: 1,
+    title: "Warm Up",
+    category: "full-body",
+    goal: "mobility",
+    videoUrl: "https://www.youtube.com/watch?v=_6-k5-w1bZw",
+  },
+  {
+    id: 2,
+    title: "Chest Press",
+    category: "chest",
+    goal: "strength",
+    videoUrl: "https://youtu.be/4Y2ZdHCOXok?si=ULaEwE2fdGeuB1eG",
+  },
+  {
+    id: 3,
+    title: "Bicep Curl",
+    category: "arms",
+    goal: "hypertrophy",
+    videoUrl: "https://youtu.be/XE_pHwbst04?si=l8ECB5EEZ5pI2R6B",
+  },
+  {
+    id: 4,
+    title: "Back Row",
+    category: "back",
+    goal: "strength",
+    videoUrl: "https://youtu.be/7B5Exks1KJE?si=ZoFPcFuJFfr8-K2c",
+  },
+  {
+    id: 5,
+    title: "Tricep Extension",
+    category: "arms",
+    goal: "hypertrophy",
+    videoUrl: "https://youtu.be/30owVlZZEf8?si=tA37WRBuDYpkRfAb",
+  },
+  {
+    id: 6,
+    title: "Hamstring Curl",
+    category: "legs",
+    goal: "hypertrophy",
+    videoUrl: "https://youtu.be/q1cKTmaeQWo?si=WqSdOX5toOOtuoFM",
+  },
+  {
+    id: 7,
+    title: "Quad Extension",
+    category: "legs",
+    goal: "hypertrophy",
+    videoUrl: "https://youtu.be/ljO4jkwv8wQ?si=NDIBGsDKil3orqJV",
+  },
+  {
+    id: 8,
+    title: "Squat",
+    category: "legs",
+    goal: "strength",
+    videoUrl: "https://youtu.be/my0tLDaWyDU?si=K-r9vFlVzIpHgXWK",
+  },
+  {
+    id: 9,
+    title: "Romanian Deadlift",
+    category: "legs",
+    goal: "strength",
+    videoUrl: "https://youtu.be/5bJEigM5iVg?si=_lHDOfjCRZl-xex_",
+  },
+  {
+    id: 10,
+    title: "Cardio",
+    category: "cardio",
+    goal: "endurance",
+    videoUrl: "https://www.youtube.com/watch?v=heP2u6TYfeE",
+  },
+  {
+    id: 11,
+    title: "Recovery",
+    category: "recovery",
+    goal: "recovery",
+    videoUrl: "https://www.youtube.com/watch?v=utAqR9-dmh0",
+  },
+];
 
-  // Store theme preference in local storage
-  const theme = document.body.classList.contains('dark') ? 'dark' : 'light';
-  localStorage.setItem('theme', JSON.stringify({ theme }));
+// Theme toggle
+checkbox.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+
+  const theme = document.body.classList.contains("dark") ? "dark" : "light";
+  localStorage.setItem("theme", JSON.stringify({ theme }));
 });
 
-// Load theme preference from local storage
-const savedTheme = JSON.parse(localStorage.getItem('theme'));
-if (savedTheme && savedTheme.theme === 'dark') {
-  document.body.classList.add('dark');
+const savedTheme = JSON.parse(localStorage.getItem("theme"));
+if (savedTheme && savedTheme.theme === "dark") {
+  document.body.classList.add("dark");
   checkbox.checked = true;
-  console.log('Loaded saved theme: Dark mode');
-} else {
-  console.log('Loaded saved theme: Light mode');
 }
 
-const form = document.getElementById('signup-form');
-form.addEventListener('submit', function (event) {
-  event.preventDefault(); // Prevent the default form submission
+function createWorkoutCard(workout) {
+  return `
+    <article class="workout-card">
+      <div class="workout-card-content">
+        <span class="workout-tag">${formatLabel(workout.category)}</span>
+        <h3>${workout.title}</h3>
+        <p class="workout-goal">Goal: ${formatLabel(workout.goal)}</p>
+        <div class="workout-card-actions">
+          <a href="${workout.videoUrl}" target="_blank" rel="noopener noreferrer">
+            Watch Video
+          </a>
+          <button type="button" class="plan-btn" data-workout-id="${workout.id}">
+            Add to Plan
+          </button>
+        </div>
+      </div>
+    </article>
+  `;
+}
 
-  const username = document.getElementById('username').value.trim();
-  const password = document.getElementById('password').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const errorElement = document.getElementById('error');
+function formatLabel(value) {
+  return value
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
 
-  errorElement.textContent = '';
+function renderWorkouts(workoutList) {
+  if (!workoutGrid) return;
 
-  // Check for empty fields
-  if (!username || !password || !email) {
-    errorElement.textContent = 'Please complete the form.';
-    console.log('Form submission failed: Incomplete fields');
+  if (workoutList.length === 0) {
+    workoutGrid.innerHTML = `<p class="empty-state">No workouts match your filters.</p>`;
     return;
   }
 
-  // Store form data in local storage as JSON
-  const formData = { username, password, email };
-  localStorage.setItem('formData', JSON.stringify(formData));
-  console.log('Form submitted successfully');
-  console.log('Saved data:', formData);
-
-  // Clear form inputs
-  form.reset();
-});
-
-// Retrieve and log stored form data (if any)
-const savedFormData = JSON.parse(localStorage.getItem('formData'));
-if (savedFormData) {
-  console.log('Retrieved saved form data:', savedFormData);
+  workoutGrid.innerHTML = workoutList
+    .map((workout) => createWorkoutCard(workout))
+    .join("");
 }
+
+function filterWorkouts() {
+  const selectedMuscle = muscleFilter.value;
+  const selectedGoal = goalFilter.value;
+
+  const filtered = workouts.filter((workout) => {
+    const matchesMuscle =
+      selectedMuscle === "all" || workout.category === selectedMuscle;
+    const matchesGoal =
+      selectedGoal === "all" || workout.goal === selectedGoal;
+
+    return matchesMuscle && matchesGoal;
+  });
+
+  renderWorkouts(filtered);
+}
+
+if (muscleFilter && goalFilter) {
+  muscleFilter.addEventListener("change", filterWorkouts);
+  goalFilter.addEventListener("change", filterWorkouts);
+}
+
+renderWorkouts(workouts);
+
+// Placeholder for next phase
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("plan-btn")) {
+    const workoutId = Number(event.target.dataset.workoutId);
+    const selectedWorkout = workouts.find((workout) => workout.id === workoutId);
+
+    if (selectedWorkout) {
+      alert(`${selectedWorkout.title} will be connected to the weekly plan next.`);
+    }
+  }
+});
