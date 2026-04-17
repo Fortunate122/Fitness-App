@@ -748,3 +748,90 @@ body.dark .empty-state {
     text-align: center;
   }
 }
+
+.plan-selector-section {
+  max-width: 900px;
+  margin: 0 auto 30px;
+  padding: 0 20px;
+}
+
+.plan-selector-panel {
+  background: #ffffff;
+  border: 1px solid #d9dee5;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.dark .plan-selector-panel {
+  background: #1f1f1f;
+  border: 1px solid #3a3a3a;
+}
+
+.selected-workout-label {
+  margin: 10px 0 18px;
+  font-weight: 600;
+}
+
+.day-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.day-checkboxes label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f7f8fa;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body.dark .day-checkboxes label {
+  background: #2b2b2b;
+}
+
+.plan-selector-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.plan-selector-actions button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#confirm-plan-btn {
+  background-color: #2f5fb8;
+  color: #fff;
+}
+
+#confirm-plan-btn:hover {
+  background-color: #24498d;
+}
+
+#cancel-plan-btn {
+  background-color: #e5e7eb;
+  color: #222;
+}
+
+#cancel-plan-btn:hover {
+  background-color: #d6d9de;
+}
+
+body.dark #cancel-plan-btn {
+  background-color: #303030;
+  color: #fff;
+}
+
+body.dark #cancel-plan-btn:hover {
+  background-color: #3b3b3b;
+}
