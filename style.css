@@ -835,3 +835,97 @@ body.dark #cancel-plan-btn {
 body.dark #cancel-plan-btn:hover {
   background-color: #3b3b3b;
 }
+
+.weekly-plan {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.plan-day {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+body.dark .plan-day {
+  background: #1f1f1f;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.plan-day h3 {
+  margin-bottom: 14px;
+  font-size: 1.1rem;
+}
+
+.plan-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+body.dark .plan-item {
+  border-bottom: 1px solid #3a3a3a;
+}
+
+.plan-item:last-child {
+  border-bottom: none;
+}
+
+.plan-workout-link {
+  color: #2f5fb8;
+  text-decoration: none;
+  font-weight: 600;
+  flex: 1;
+}
+
+.plan-workout-link:hover {
+  text-decoration: underline;
+}
+
+body.dark .plan-workout-link {
+  color: #8fb5ff;
+}
+
+.remove-plan-btn {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #e5e7eb;
+  color: #222;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.remove-plan-btn:hover {
+  background-color: #d6d9de;
+}
+
+body.dark .remove-plan-btn {
+  background-color: #303030;
+  color: #fff;
+}
+
+body.dark .remove-plan-btn:hover {
+  background-color: #3b3b3b;
+}
+
+.plan-empty {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+body.dark .plan-empty {
+  color: #ccc;
+}

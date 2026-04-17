@@ -201,22 +201,29 @@ function renderWeeklyPlan() {
     }
 
     listElement.innerHTML = workoutsForDay
-      .map(
-        (workout) => `
-          <li class="plan-item">
-            <span>${workout.title}</span>
-            <button
-              type="button"
-              class="remove-plan-btn"
-              data-day="${day}"
-              data-workout-id="${workout.id}"
-            >
-              Remove
-            </button>
-          </li>
-        `
-      )
-      .join("");
+  .map(
+    (workout) => `
+      <li class="plan-item">
+        <a
+          href="${workout.videoUrl}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="plan-workout-link"
+        >
+          ${workout.title}
+        </a>
+        <button
+          type="button"
+          class="remove-plan-btn"
+          data-day="${day}"
+          data-workout-id="${workout.id}"
+        >
+          Remove
+        </button>
+      </li>
+    `
+  )
+  .join("");
   });
 }
 
