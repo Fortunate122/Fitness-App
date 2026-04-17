@@ -83,6 +83,27 @@ const workouts = [
   },
 ];
 
+const dayNames = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
+
+let weeklyPlan =
+  JSON.parse(localStorage.getItem("weeklyPlan")) || {
+    monday: [],
+    tuesday: [],
+    wednesday: [],
+    thursday: [],
+    friday: [],
+    saturday: [],
+    sunday: [],
+  };
+
 // Theme toggle
 checkbox.addEventListener("change", () => {
   document.body.classList.toggle("dark");
@@ -95,6 +116,13 @@ const savedTheme = JSON.parse(localStorage.getItem("theme"));
 if (savedTheme && savedTheme.theme === "dark") {
   document.body.classList.add("dark");
   checkbox.checked = true;
+}
+
+function formatLabel(value) {
+  return value
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 function createWorkoutCard(workout) {
@@ -115,13 +143,6 @@ function createWorkoutCard(workout) {
       </div>
     </article>
   `;
-}
-
-function formatLabel(value) {
-  return value
-    .split("-")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
 }
 
 function renderWorkouts(workoutList) {
@@ -153,21 +174,89 @@ function filterWorkouts() {
   renderWorkouts(filtered);
 }
 
+function saveWeeklyPlan() {
+  localStorage.setItem("weeklyPlan", JSON.stringify(weeklyPlan));
+}
+
+function renderWeeklyPlan() {
+  dayNames.forEach((day) => {
+    const listElement = document.getElementById(`${day}-list`);
+    if (!listElement) return;
+
+    const workoutsForDay = weeklyPlan[day];
+
+    if (!workoutsForDay || workoutsForDay.length === 0) {
+      listElement.innerHTML = `<li class="plan-empty">No workouts added yet.</li>`;
+      return;
+    }
+
+    listElement.innerHTML = workoutsForDay
+      .map(
+        (workout) => `
+          <li class="plan-item">
+            <span>${workout.title}</span>
+            <button
+              type="button"
+              class="remove-plan-btn"
+              data-day="${day}"
+              data-workout-id="${workout.id}"
+            >
+              Remove
+            </button>
+          </li>
+        `
+      )
+      .join("");
+  });
+}
+
+function addWorkoutToPlan(workoutId) {
+  const selectedWorkout = workouts.find((workout) => workout.id === workoutId);
+  if (!selectedWorkout) return;
+
+  const selectedDay = prompt(
+    "Enter a day of the week: monday, tuesday, wednesday, thursday, friday, saturday, or sunday."
+  );
+
+  if (!selectedDay) return;
+
+  const normalizedDay = selectedDay.trim().toLowerCase();
+
+  if (!dayNames.includes(normalizedDay)) {
+    alert("Please enter a valid day of the week.");
+    return;
+  }
+
+  weeklyPlan[normalizedDay].push(selectedWorkout);
+  saveWeeklyPlan();
+  renderWeeklyPlan();
+}
+
+function removeWorkoutFromPlan(day, workoutId) {
+  weeklyPlan[day] = weeklyPlan[day].filter(
+    (workout) => workout.id !== workoutId
+  );
+
+  saveWeeklyPlan();
+  renderWeeklyPlan();
+}
+
 if (muscleFilter && goalFilter) {
   muscleFilter.addEventListener("change", filterWorkouts);
   goalFilter.addEventListener("change", filterWorkouts);
 }
 
-renderWorkouts(workouts);
-
-// Placeholder for next phase
 document.addEventListener("click", (event) => {
   if (event.target.classList.contains("plan-btn")) {
     const workoutId = Number(event.target.dataset.workoutId);
-    const selectedWorkout = workouts.find((workout) => workout.id === workoutId);
+    addWorkoutToPlan(workoutId);
+  }
 
-    if (selectedWorkout) {
-      alert(`${selectedWorkout.title} will be connected to the weekly plan next.`);
-    }
+  if (event.target.classList.contains("remove-plan-btn")) {
+    const { day, workoutId } = event.target.dataset;
+    removeWorkoutFromPlan(day, Number(workoutId));
   }
 });
+
+renderWorkouts(workouts);
+renderWeeklyPlan();
