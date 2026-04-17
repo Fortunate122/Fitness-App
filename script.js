@@ -3,6 +3,14 @@ const workoutGrid = document.getElementById("workout-grid");
 const muscleFilter = document.getElementById("muscle-filter");
 const goalFilter = document.getElementById("goal-filter");
 
+const planSelectorPanel = document.getElementById("plan-selector-panel");
+const selectedWorkoutLabel = document.getElementById("selected-workout-label");
+const confirmPlanBtn = document.getElementById("confirm-plan-btn");
+const cancelPlanBtn = document.getElementById("cancel-plan-btn");
+const dayCheckboxes = document.querySelectorAll(
+  '.day-checkboxes input[type="checkbox"]'
+);
+
 const workouts = [
   {
     id: 1,
@@ -92,6 +100,8 @@ const dayNames = [
   "saturday",
   "sunday",
 ];
+
+let selectedWorkoutForPlan = null;
 
 let weeklyPlan =
   JSON.parse(localStorage.getItem("weeklyPlan")) || {
@@ -210,26 +220,48 @@ function renderWeeklyPlan() {
   });
 }
 
-function addWorkoutToPlan(workoutId) {
+function openPlanSelector(workoutId) {
   const selectedWorkout = workouts.find((workout) => workout.id === workoutId);
   if (!selectedWorkout) return;
 
-  const selectedDay = prompt(
-    "Enter a day of the week: monday, tuesday, wednesday, thursday, friday, saturday, or sunday."
-  );
+  selectedWorkoutForPlan = selectedWorkout;
+  selectedWorkoutLabel.textContent = `Selected workout: ${selectedWorkout.title}`;
 
-  if (!selectedDay) return;
+  dayCheckboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
 
-  const normalizedDay = selectedDay.trim().toLowerCase();
+  planSelectorPanel.classList.remove("hidden");
+}
 
-  if (!dayNames.includes(normalizedDay)) {
-    alert("Please enter a valid day of the week.");
+function closePlanSelector() {
+  selectedWorkoutForPlan = null;
+  selectedWorkoutLabel.textContent = "Selected workout:";
+  dayCheckboxes.forEach((checkbox) => {
+    checkbox.checked = false;
+  });
+  planSelectorPanel.classList.add("hidden");
+}
+
+function addSelectedDaysToPlan() {
+  if (!selectedWorkoutForPlan) return;
+
+  const selectedDays = Array.from(dayCheckboxes)
+    .filter((checkbox) => checkbox.checked)
+    .map((checkbox) => checkbox.value);
+
+  if (selectedDays.length === 0) {
+    alert("Please select at least one day.");
     return;
   }
 
-  weeklyPlan[normalizedDay].push(selectedWorkout);
+  selectedDays.forEach((day) => {
+    weeklyPlan[day].push(selectedWorkoutForPlan);
+  });
+
   saveWeeklyPlan();
   renderWeeklyPlan();
+  closePlanSelector();
 }
 
 function removeWorkoutFromPlan(day, workoutId) {
@@ -246,10 +278,18 @@ if (muscleFilter && goalFilter) {
   goalFilter.addEventListener("change", filterWorkouts);
 }
 
+if (confirmPlanBtn) {
+  confirmPlanBtn.addEventListener("click", addSelectedDaysToPlan);
+}
+
+if (cancelPlanBtn) {
+  cancelPlanBtn.addEventListener("click", closePlanSelector);
+}
+
 document.addEventListener("click", (event) => {
   if (event.target.classList.contains("plan-btn")) {
     const workoutId = Number(event.target.dataset.workoutId);
-    addWorkoutToPlan(workoutId);
+    openPlanSelector(workoutId);
   }
 
   if (event.target.classList.contains("remove-plan-btn")) {

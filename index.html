@@ -89,6 +89,30 @@
         <div id="workout-grid" class="workout-grid"></div>
       </section>
 
+      <section id="plan-selector" class="plan-selector-section">
+  <div id="plan-selector-panel" class="plan-selector-panel hidden">
+    <h3>Add Workout to Your Plan</h3>
+    <p id="selected-workout-label" class="selected-workout-label">
+      Selected workout:
+    </p>
+
+    <div class="day-checkboxes">
+      <label><input type="checkbox" value="monday" /> Monday</label>
+      <label><input type="checkbox" value="tuesday" /> Tuesday</label>
+      <label><input type="checkbox" value="wednesday" /> Wednesday</label>
+      <label><input type="checkbox" value="thursday" /> Thursday</label>
+      <label><input type="checkbox" value="friday" /> Friday</label>
+      <label><input type="checkbox" value="saturday" /> Saturday</label>
+      <label><input type="checkbox" value="sunday" /> Sunday</label>
+    </div>
+
+    <div class="plan-selector-actions">
+      <button type="button" id="confirm-plan-btn">Add Selected Days</button>
+      <button type="button" id="cancel-plan-btn">Cancel</button>
+    </div>
+  </div>
+</section>
+
       <section id="contact" class="page-section">
   <h2>Your Plan</h2>
   <div>
