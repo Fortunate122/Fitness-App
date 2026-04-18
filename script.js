@@ -223,7 +223,7 @@ function createWorkoutCard(workout) {
             Watch Video
           </a>
           <button type="button" class="plan-btn" data-workout-id="${workout.id}">
-            Add to Plan
+            Add to Weekly Plan
           </button>
           ${
             hasVariations
@@ -324,7 +324,7 @@ function renderWeeklyPlan() {
           data-day="${day}"
           data-workout-id="${workout.id}"
         >
-          Remove
+          Remove From Plan
         </button>
       </li>
     `
