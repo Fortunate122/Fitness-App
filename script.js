@@ -17,77 +17,149 @@ const workouts = [
     title: "Warm Up",
     category: "full-body",
     goal: "mobility",
+    description:
+      "Prepare your body for movement with light mobility work and dynamic activation before training.",
     videoUrl: "https://www.youtube.com/watch?v=_6-k5-w1bZw",
+    variations: [
+      {
+        title: "Upper Body Warm Up",
+        videoUrl: "https://www.youtube.com/watch?v=_6-k5-w1bZw",
+      },
+      {
+        title: "Lower Body Warm Up",
+        videoUrl: "https://www.youtube.com/watch?v=_6-k5-w1bZw",
+      },
+      {
+        title: "Full Body Warm Up",
+        videoUrl: "https://www.youtube.com/watch?v=_6-k5-w1bZw",
+      },
+    ],
   },
   {
     id: 2,
     title: "Chest Press",
     category: "chest",
     goal: "strength",
+    description:
+      "A pressing movement used to build chest, shoulder, and tricep strength with multiple angle variations.",
     videoUrl: "https://youtu.be/4Y2ZdHCOXok?si=ULaEwE2fdGeuB1eG",
+    variations: [
+      {
+        title: "Flat Chest Press",
+        videoUrl: "https://youtu.be/4Y2ZdHCOXok?si=ULaEwE2fdGeuB1eG",
+      },
+      {
+        title: "Incline Chest Press",
+        videoUrl: "https://youtu.be/4Y2ZdHCOXok?si=ULaEwE2fdGeuB1eG",
+      },
+      {
+        title: "Decline Chest Press",
+        videoUrl: "https://youtu.be/4Y2ZdHCOXok?si=ULaEwE2fdGeuB1eG",
+      },
+    ],
   },
   {
     id: 3,
     title: "Bicep Curl",
     category: "arms",
     goal: "hypertrophy",
+    description:
+      "An isolation movement focused on bicep development and controlled upper-arm strength work.",
     videoUrl: "https://youtu.be/XE_pHwbst04?si=l8ECB5EEZ5pI2R6B",
+    variations: [],
   },
   {
     id: 4,
     title: "Back Row",
     category: "back",
     goal: "strength",
+    description:
+      "A pulling exercise used to strengthen the upper back, lats, and supporting shoulder muscles.",
     videoUrl: "https://youtu.be/7B5Exks1KJE?si=ZoFPcFuJFfr8-K2c",
+    variations: [],
   },
   {
     id: 5,
     title: "Tricep Extension",
     category: "arms",
     goal: "hypertrophy",
+    description:
+      "A focused tricep movement that helps improve arm strength and muscle definition.",
     videoUrl: "https://youtu.be/30owVlZZEf8?si=tA37WRBuDYpkRfAb",
+    variations: [],
   },
   {
     id: 6,
     title: "Hamstring Curl",
     category: "legs",
     goal: "hypertrophy",
+    description:
+      "An isolation movement targeting the hamstrings to improve lower-body strength and control.",
     videoUrl: "https://youtu.be/q1cKTmaeQWo?si=WqSdOX5toOOtuoFM",
+    variations: [],
   },
   {
     id: 7,
     title: "Quad Extension",
     category: "legs",
     goal: "hypertrophy",
+    description:
+      "A leg isolation exercise focused on building quad strength and muscular endurance.",
     videoUrl: "https://youtu.be/ljO4jkwv8wQ?si=NDIBGsDKil3orqJV",
+    variations: [],
   },
   {
     id: 8,
     title: "Squat",
     category: "legs",
     goal: "strength",
+    description:
+      "A foundational lower-body movement that develops strength, coordination, and total-body stability.",
     videoUrl: "https://youtu.be/my0tLDaWyDU?si=K-r9vFlVzIpHgXWK",
+    variations: [
+      {
+        title: "Bodyweight Squat",
+        videoUrl: "https://youtu.be/my0tLDaWyDU?si=K-r9vFlVzIpHgXWK",
+      },
+      {
+        title: "Goblet Squat",
+        videoUrl: "https://youtu.be/my0tLDaWyDU?si=K-r9vFlVzIpHgXWK",
+      },
+      {
+        title: "Barbell Back Squat",
+        videoUrl: "https://youtu.be/my0tLDaWyDU?si=K-r9vFlVzIpHgXWK",
+      },
+    ],
   },
   {
     id: 9,
     title: "Romanian Deadlift",
     category: "legs",
     goal: "strength",
+    description:
+      "A hip-hinge movement that targets the hamstrings, glutes, and posterior chain.",
     videoUrl: "https://youtu.be/5bJEigM5iVg?si=_lHDOfjCRZl-xex_",
+    variations: [],
   },
   {
     id: 10,
     title: "Cardio",
     category: "cardio",
     goal: "endurance",
+    description:
+      "Heart-rate-focused conditioning work to improve stamina, endurance, and overall fitness.",
     videoUrl: "https://www.youtube.com/watch?v=heP2u6TYfeE",
+    variations: [],
   },
   {
     id: 11,
     title: "Recovery",
     category: "recovery",
     goal: "recovery",
+    description:
+      "Low-intensity movement and recovery work to support mobility, soreness reduction, and consistency.",
     videoUrl: "https://www.youtube.com/watch?v=utAqR9-dmh0",
+    variations: [],
   },
 ];
 
@@ -136,12 +208,16 @@ function formatLabel(value) {
 }
 
 function createWorkoutCard(workout) {
+  const hasVariations = workout.variations && workout.variations.length > 0;
+
   return `
     <article class="workout-card">
       <div class="workout-card-content">
         <span class="workout-tag">${formatLabel(workout.category)}</span>
         <h3>${workout.title}</h3>
         <p class="workout-goal">Goal: ${formatLabel(workout.goal)}</p>
+        <p class="workout-description">${workout.description}</p>
+
         <div class="workout-card-actions">
           <a href="${workout.videoUrl}" target="_blank" rel="noopener noreferrer">
             Watch Video
@@ -149,7 +225,37 @@ function createWorkoutCard(workout) {
           <button type="button" class="plan-btn" data-workout-id="${workout.id}">
             Add to Plan
           </button>
+          ${
+            hasVariations
+              ? `<button type="button" class="variation-toggle-btn" data-workout-id="${workout.id}">
+                  View Variations
+                </button>`
+              : ""
+          }
         </div>
+
+        ${
+          hasVariations
+            ? `
+              <div class="variation-list hidden" id="variations-${workout.id}">
+                ${workout.variations
+                  .map(
+                    (variation) => `
+                      <a
+                        href="${variation.videoUrl}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="variation-link"
+                      >
+                        ${variation.title}
+                      </a>
+                    `
+                  )
+                  .join("")}
+              </div>
+            `
+            : ""
+        }
       </div>
     </article>
   `;
@@ -310,6 +416,18 @@ document.addEventListener("click", (event) => {
   if (event.target.classList.contains("remove-plan-btn")) {
     const { day, workoutId } = event.target.dataset;
     removeWorkoutFromPlan(day, Number(workoutId));
+  }
+
+    if (event.target.classList.contains("variation-toggle-btn")) {
+    const workoutId = event.target.dataset.workoutId;
+    const variationList = document.getElementById(`variations-${workoutId}`);
+
+    if (variationList) {
+      variationList.classList.toggle("hidden");
+      event.target.textContent = variationList.classList.contains("hidden")
+        ? "View Variations"
+        : "Hide Variations";
+    }
   }
 });
 

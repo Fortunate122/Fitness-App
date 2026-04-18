@@ -929,3 +929,59 @@ body.dark .remove-plan-btn:hover {
 body.dark .plan-empty {
   color: #ccc;
 }
+
+.workout-description {
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+body.dark .workout-description {
+  color: #d0d0d0;
+}
+
+.variation-toggle-btn {
+  background-color: #e5e7eb;
+  color: #222;
+}
+
+.variation-toggle-btn:hover {
+  background-color: #d6d9de;
+}
+
+body.dark .variation-toggle-btn {
+  background-color: #303030;
+  color: #fff;
+}
+
+body.dark .variation-toggle-btn:hover {
+  background-color: #3b3b3b;
+}
+
+.variation-list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 14px;
+}
+
+body.dark .variation-list {
+  border-top: 1px solid #3a3a3a;
+}
+
+.variation-link {
+  text-decoration: none;
+  color: #2f5fb8;
+  font-weight: 600;
+}
+
+.variation-link:hover {
+  text-decoration: underline;
+}
+
+body.dark .variation-link {
+  color: #8fb5ff;
+}
